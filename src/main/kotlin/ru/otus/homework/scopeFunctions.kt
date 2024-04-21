@@ -3,9 +3,7 @@ package ru.otus.homework
 import kotlin.random.Random
 
 fun main() {
-    val address: Address = Address()
-
-    address.run {
+    val address: Address = Address().apply {
         street1 = "Ul. Lenina, d. 10"
         street2 = "Kv. 10"
         city = "Borok"
