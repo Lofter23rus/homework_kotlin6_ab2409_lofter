@@ -3,11 +3,13 @@ package ru.otus.homework
 fun main() {
     val address = Address()
 
-    address.street1 = "Ul. Lenina, d. 10"
-    address.street2 = "Kv. 10"
-    address.city = "Borok"
-    address.country = "Russia"
-    address.index = "12345"
+    with(address) {
+        street1 = "Ul. Lenina, d. 10"
+        street2 = "Kv. 10"
+        city = "Borok"
+        country = "Russia"
+        index = "12345"
+    }
 
     println(address)
 }
