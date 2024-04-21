@@ -15,7 +15,7 @@ fun main() {
 
     val addressString: String = address
         .let { "${it.street1}, ${it.street2}, ${it.city}, ${it.country}, ${it.index}" }
-        .also { addrStr -> println("Address length: ${addrStr.length}") }
+        .apply { println("Address length: $length") }
 
     println(address)
     println(addressString)
