@@ -11,7 +11,12 @@ fun main() {
         index = "12345"
     }
 
+    val addressString = with(address) {
+        "$street1, $street2, $city, $country, $index"
+    }
+
     println(address)
+    println(addressString)
 }
 
 class Address {
