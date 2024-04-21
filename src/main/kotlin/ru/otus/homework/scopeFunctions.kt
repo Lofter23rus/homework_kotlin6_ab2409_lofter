@@ -3,12 +3,12 @@ package ru.otus.homework
 import kotlin.random.Random
 
 fun main() {
-    val address: Address = Address().apply {
-        street1 = "Ul. Lenina, d. 10"
-        street2 = "Kv. 10"
-        city = "Borok"
-        country = "Russia"
-        index = "12345"
+    val address: Address = Address().also {
+        it.street1 = "Ul. Lenina, d. 10"
+        it.street2 = "Kv. 10"
+        it.city = "Borok"
+        it.country = "Russia"
+        it.index = "12345"
     }
 
     val addressString: String = address
