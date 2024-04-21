@@ -1,9 +1,11 @@
 package ru.otus.homework
 
-fun main() {
-    val address = Address()
+import kotlin.random.Random
 
-    address.run {
+fun main() {
+    val address: Address? = if (Random.nextBoolean()) Address() else null
+
+    address?.run {
         street1 = "Ul. Lenina, d. 10"
         street2 = "Kv. 10"
         city = "Borok"
@@ -11,9 +13,9 @@ fun main() {
         index = "12345"
     }
 
-    val addressString = address.run {
+    val addressString = address?.run {
         "$street1, $street2, $city, $country, $index"
-    }
+    } ?: "Address is not defined"
 
     println(address)
     println(addressString)
