@@ -5,16 +5,16 @@ import kotlin.random.Random
 fun main() {
     val address: Address? = if (Random.nextBoolean()) Address() else null
 
-    address?.run {
-        street1 = "Ul. Lenina, d. 10"
-        street2 = "Kv. 10"
-        city = "Borok"
-        country = "Russia"
-        index = "12345"
+    address?.let { addr ->
+        addr.street1 = "Ul. Lenina, d. 10"
+        addr.street2 = "Kv. 10"
+        addr.city = "Borok"
+        addr.country = "Russia"
+        addr.index = "12345"
     }
 
-    val addressString = address?.run {
-        "$street1, $street2, $city, $country, $index"
+    val addressString = address?.let {
+        "${it.street1}, ${it.street2}, ${it.city}, ${it.country}, ${it.index}"
     } ?: "Address is not defined"
 
     println(address)
