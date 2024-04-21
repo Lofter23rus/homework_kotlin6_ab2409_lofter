@@ -1,7 +1,5 @@
 package ru.otus.homework
 
-import kotlin.random.Random
-
 fun main() {
     val address: Address = Address().also {
         it.street1 = "Ul. Lenina, d. 10"
@@ -19,10 +17,3 @@ fun main() {
     println(addressString)
 }
 
-class Address {
-    lateinit var street1: String
-    lateinit var street2: String
-    lateinit var city: String
-    lateinit var country: String
-    lateinit var index: String
-}
