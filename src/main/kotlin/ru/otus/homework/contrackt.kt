@@ -1,5 +1,7 @@
 package ru.otus.homework
 
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.contract
 import kotlin.random.Random
 
 fun main() {
@@ -9,6 +11,8 @@ fun main() {
     }
 }
 
+@OptIn(ExperimentalContracts::class)
 fun Address?.isNotNull(): Boolean {
+    contract { returns() implies (this@isNotNull != null) }
     return null != this
 }
