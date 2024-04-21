@@ -17,6 +17,12 @@ fun main() {
         "${it.street1}, ${it.street2}, ${it.city}, ${it.country}, ${it.index}"
     } ?: "Address is not defined"
 
+    address?.run { println("Address: $this") }
+    address?.let { println("Address: $it") }
+
+    address?.run { println("Address: $street1") }
+    address?.let { println("Address: ${it.street1}") }
+
     println(address)
     println(addressString)
 }
