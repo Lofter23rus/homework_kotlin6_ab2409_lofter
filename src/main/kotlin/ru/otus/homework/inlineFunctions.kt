@@ -1,10 +1,15 @@
 package ru.otus.homework
 
-
-fun updateAddress(block: () -> Unit) {
+// Наша функция, которая принимает лямбду
+fun updateAddress(block: Function0) {
     println("Updating address...")
-    block()
+    block.invoke()
     println("Address updated")
+}
+
+// Интерфейс для функции, котоая под капотом лямбды
+interface Function0 {
+    operator fun invoke()
 }
 
 fun main() {
@@ -18,10 +23,14 @@ fun main() {
 
     val someNewAddress = "Hello, world!"
 
-    updateAddress {
-        address.street1 = someNewAddress
-        address.street2 = "Kv. 110"
-    }
+    // Создается анонимный объект,
+    // который реализует интерфейс Function0
+    updateAddress(object : Function0 {
+        override fun invoke() {
+            address.street1 = someNewAddress
+            address.street2 = "Kv. 110"
+        }
+    })
 
     println(address.street1)
     println(address.street2)
