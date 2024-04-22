@@ -1,12 +1,6 @@
 package ru.otus.homework
 
 
-inline fun updateAddress(block: () -> Unit) {
-    println("Updating address...")
-    block()
-    println("Address updated")
-}
-
 fun main() {
     val address = Address().apply {
         street1 = "Ul. Lenina, d. 10"
@@ -18,10 +12,14 @@ fun main() {
 
     val someNewAddress = "Hello, world!"
 
-    updateAddress {
-        address.street1 = someNewAddress
-        address.street2 = "Kv. 110"
-    }
+    // Подставляется тело функции updateAddress
+    println("Updating address...")
+    // ----- тело лямбда-функции -----
+    address.street1 = someNewAddress
+    address.street2 = "Kv. 110"
+    // ----- конец тела лямбда-функции -----
+    println("Address updated")
+    // Конец подстановки updateAddress
 
     println(address.street1)
     println(address.street2)
