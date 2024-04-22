@@ -11,7 +11,11 @@ fun main() {
 }
 
 class RandomNumberBox {
-    var number by SomeNumber()
+    private val someNumber = SomeNumber()
+
+    var number: Int
+        get() = someNumber.getValue(this, RandomNumberBox::number)
+        set(value) = someNumber.setValue(this, RandomNumberBox::number, value)
 }
 
 class SomeNumber() {
