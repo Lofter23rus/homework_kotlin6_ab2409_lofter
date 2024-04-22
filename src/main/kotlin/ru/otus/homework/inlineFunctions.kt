@@ -4,12 +4,12 @@ import kotlin.random.Random
 
 
 fun main() {
-    repeat(3) {
+    for (i in 0 until 3) {
         if (Random.nextInt(0, 10) > 7) {
             println("Early return from `repeat`")
             return
         }
-        println("Iteration $it")
+        println("Iteration $i")
     }
     println("End of `main`")
 }
