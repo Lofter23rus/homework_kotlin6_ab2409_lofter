@@ -9,9 +9,14 @@ fun main() {
 }
 
 class VetClinic(
-    catVet: CatVet,
+    private val catVet: CatVet,
     dogVet: DogVet
-): CatVet by catVet, DogVet by dogVet
+): CatVet by catVet, DogVet by dogVet {
+    override fun treat(cat: Cat) {
+        println("Delegate to catVet")
+        catVet.treat(cat)
+    }
+}
 
 interface CatVet {
     fun treat(cat: Cat)
