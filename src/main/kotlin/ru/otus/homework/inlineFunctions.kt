@@ -1,28 +1,17 @@
 package ru.otus.homework
 
+import kotlin.random.Random
+
 
 fun main() {
-    val address = Address().apply {
-        street1 = "Ul. Lenina, d. 10"
-        street2 = "Kv. 10"
-        city = "Borok"
-        country = "Russia"
-        index = "12345"
+    for (i in 0 until 3) {
+        if (Random.nextInt(0, 10) > 7) {
+            println("Early return from `repeat`")
+            return
+        }
+        println("Iteration $i")
     }
-
-    val someNewAddress = "Hello, world!"
-
-    // Подставляется тело функции updateAddress
-    println("Updating address...")
-    // ----- тело лямбда-функции -----
-    address.street1 = someNewAddress
-    address.street2 = "Kv. 110"
-    // ----- конец тела лямбда-функции -----
-    println("Address updated")
-    // Конец подстановки updateAddress
-
-    println(address.street1)
-    println(address.street2)
+    println("End of `main`")
 }
 
 
