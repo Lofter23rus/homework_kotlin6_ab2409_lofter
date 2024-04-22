@@ -8,6 +8,13 @@ fun main() {
     val box = RandomNumberBox()
     box.number = Random.nextInt(100)
     println("Random number: ${box.number}")
+
+    // Lazy initialization
+    println("====================")
+    println("Creating lazy box")
+    val lazyBox = LazyBox()
+    println("Accessing value")
+    lazyBox.printValue()
 }
 
 class RandomNumberBox {
@@ -29,5 +36,16 @@ class SomeNumber() {
     operator fun setValue(thisRef: Any?, property: KProperty<*>, value: Int) {
         println("Setting number to '$value' in '${property.name}' in $thisRef.")
         this.value = value
+    }
+}
+
+class LazyBox {
+    private val value: String by lazy {
+        println("Lazy initialization")
+        "Hello"
+    }
+
+    fun printValue() {
+        println(value)
     }
 }
