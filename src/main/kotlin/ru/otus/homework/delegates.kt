@@ -8,7 +8,7 @@ fun main() {
     vetClinic.treat(Dog())
 }
 
-class VetClinic(
+open class VetClinic(
     private val catVet: CatVet,
     dogVet: DogVet
 ): CatVet by catVet, DogVet by dogVet {

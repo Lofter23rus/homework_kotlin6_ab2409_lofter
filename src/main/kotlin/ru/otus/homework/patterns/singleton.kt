@@ -1,31 +1,18 @@
 package ru.otus.homework.patterns
 
+import java.util.*
+import kotlin.system.measureTimeMillis
+
 fun main() {
-    println("Hello, singleton!")
-    println("First call:")
-    val db1 = Database.getInstance()
-    println(db1.data)
-    println("Second call:")
-    val db2 = Database.getInstance()
-    println(db2.data)
-
-    println("db1 === db2: ${db1 === db2}")
+    println("Test started")
+    val ms1 = MySingleton.value
+    println(ms1)
+    val ms2 = MySingleton.value
+    println(ms2)
+    println("ms1 === ms2: ${ms1 === ms2}")
+}
+// один объект для всех экземпляров
+object MySingleton {
+    val value : String = UUID.randomUUID().toString()
 }
 
-class Database private constructor(val data: Map<String, String>) {
-    companion object {
-        private var instance: Database? = null
-
-        fun getInstance(): Database {
-            if (instance == null) {
-                println("Initializing database...")
-                instance = Database(mapOf(
-                    "1" to "One",
-                    "2" to "Two",
-                    "3" to "Three"
-                ))
-            }
-            return instance!!
-        }
-    }
-}
